@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>期末作業</title>
+</head>
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center; 
+    }
+    .navbar {
+        display: flex;              /* 使用 flex 排版 */
+        align-items: center;        /* 垂直置中 */
+        justify-content: flex-start; 
+        background-color: #7ca1f0;     /* 背景顏色 */
+        padding: 0 20px;            /* 左右內距 */
+    }
+    .logo img {
+        height: 90px;               /* 控制圖片高度 */
+        width: auto;                /* 寬度自動等比例 */
+        margin: 5px;
+    }
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin-left: 10px;
+        background-color: #7ca1f0;
+        display: flex;
+        font-size: 25px;
+    }
+
+    .menu li {
+        position: relative;
+        width: 150px;
+        text-align: center;
+    }
+    .menu li a {
+         display: block;
+         padding: 15px;
+         color: rgb(245, 233, 129);
+         text-decoration: none;
+         transition: background-color 0.3s;
+    }
+
+    .menu li a:hover {
+        background-color: #89dfee;
+    }
+
+/* =====================
+   跑馬燈區
+===================== */
+.slider {
+  position: relative;
+  width: 100%;           /* 撐滿整個畫面寬度 */
+  height: 450px;         /* 增加高度，畫面更大 */
+  margin: 0 auto;        /* 水平置中（保險用） */
+  overflow: hidden;      /* 超出範圍的圖片裁切 */
+  display: flex;
+  justify-content: center; /* 確保內容不偏移 */
+}
+
+/* 跑馬燈圖片 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;          /* 圖片寬度撐滿 */
+  max-height: 100%;         /* 圖片高度撐滿 */
+  object-fit: contain;    /* 等比例裁切，不變形 */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/* 顯示中的圖片 */
+.slide.active {
+  opacity: 1;
+}
+
+
+
+/* =====================
+   介紹文字區
+===================== */
+.intro {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+/* =====================
+   YouTube 區
+===================== */
+.videos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.videos iframe {
+  width: 360px;
+  height: 215px;
+  border: none;
+}
+
+/* =====================
+   角色介紹區
+===================== */
+.characters {
+  margin: 50px 0;
+}
+
+/* 角色卡片排列 */
+.character-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* 單一角色 */
+.character {
+  width: 200px;
+}
+
+.character img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+  </style>
+
+<body>
+<nav class=" navbar">
+    <div class="logo">
+        <img src="pic/logo.png" alt="">
+    </div>
+        <ul class="menu">
+             <li><a href="index.html">首頁</a></li>
+             <li class="dropdown"><a href="fin2.html">最新消息</a></li>
+             <li><a href="fin3.html">聯絡我們</a></li>
+        </ul>
+</nav>
+<!-- =====================
+     圖片跑馬燈區塊
+===================== -->
+<section class="slider">
+
+  <!-- 跑馬燈圖片 -->
+  <img src="pic/BG1.png" class="slide active">
+  <img src="pic/BG2.png" class="slide">
+  <img src="pic/BG3.png" class="slide">
+  <img src="pic/BG4.png" class="slide">
+  <img src="pic/BG5.png" class="slide">
+  <img src="pic/BG6.png" class="slide">
+  <img src="pic/BG7.png" class="slide">
+  
+
+</section>
+
+<!-- =====================
+     標題 + 文字敘述
+===================== -->
+<section class="intro">
+  <h2>背景音樂</h2>
+  <p>
+    《原神》的音樂團隊是米哈游旗下的 HOYO-MiX，
+    由多位作曲家組成，並與倫敦愛樂、上海交響樂團等頂尖樂團合作，
+    以其融合古典、世界音樂及現代元素的多元風格聞名，
+    曾由陳致逸擔任主要音樂製作人，後由苑迪萌接任。 
+  </p>
+</section>
+
+<!-- =====================
+     YouTube 影片區
+===================== -->
+<section class="videos">
+
+  <!-- 第一個 YouTube -->
+  <iframe src="https://www.youtube.com/embed/ihrHMA9zidA" allowfullscreen></iframe>
+
+  <!-- 第二個 YouTube -->
+  <iframe src="https://www.youtube.com/embed/D48UG9WiTNk" allowfullscreen></iframe>
+
+</section>
+
+<!-- =====================
+     角色介紹區
+===================== -->
+<section class="characters">
+
+  <h2>角色介紹</h2>
+
+  <div class="character-list">
+
+    <!-- 角色 1 -->
+    <div class="character">
+      <img src="pic/Durin.png">
+      <h3>杜林</h3>
+      <p>五星火系單手劍，是原神為數不多的小男孩之一</p>
+    </div>
+
+    <!-- 角色 2 -->
+    <div class="character">
+      <img src="pic/Albedo.png">
+      <h3>阿貝多</h3>
+      <p>五星岩系單手劍，官方你什麼時候要還他媽生頭髮</p>
+    </div>
+
+    <!-- 角色 3 -->
+    <div class="character">
+      <img src="pic/Ayato.png">
+      <h3>神里綾人</h3>
+      <p>五星水系單手劍，溫柔腹黑大葛格</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================
+     跑馬燈 JavaScript
+===================== -->
+<script>
+  // 取得所有圖片
+  const slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  // 每 3 秒切換圖片
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3000);
+</script>
+
+
+
+
+    
+
+
+
+
+
+</body>
+</html>
