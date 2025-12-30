@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>期末作業</title>
+</head>
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center; 
+        background-color: #f7f7f7;
+        color: #333;
+        height: 100vh;
+    }
+    .navbar {
+        display: flex;              /* 使用 flex 排版 */
+        align-items: center;        /* 垂直置中 */
+        justify-content: flex-start; 
+        background-color: #7ca1f0;     /* 背景顏色 */
+        padding: 0 20px;            /* 左右內距 */
+    }
+    .logo img {
+        height: 90px;               /* 控制圖片高度 */
+        width: auto;                /* 寬度自動等比例 */
+        margin: 5px;
+    }
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin-left: 10px;
+        background-color: #7ca1f0;
+        display: flex;
+        font-size: 25px;
+    }
+
+    .menu li {
+        position: relative;
+        width: 150px;
+        text-align: center;
+    }
+    .menu li a {
+         display: block;
+         padding: 15px;
+         color: rgb(245, 233, 129);
+         text-decoration: none;
+         transition: background-color 0.3s;
+    }
+
+    .menu li a:hover {
+        background-color: #89dfee;
+    }
+    .slider {
+  position: relative;
+  width: 100%;           /* 撐滿整個畫面寬度 */
+  height: 450px;         /* 增加高度，畫面更大 */
+  margin: 0 auto;        /* 水平置中（保險用） */
+  overflow: hidden;      /* 超出範圍的圖片裁切 */
+  display: flex;
+  justify-content: center; /* 確保內容不偏移 */
+}
+
+/* 跑馬燈圖片 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;          /* 圖片寬度撐滿 */
+  max-height: 100%;         /* 圖片高度撐滿 */
+  object-fit: contain;    /* 等比例裁切，不變形 */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/* 顯示中的圖片 */
+.slide.active {
+  opacity: 1;
+}
+
+/* 容器設定，將圖片區塊排列 */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* 使內容可以換行 */
+    justify-content: center; /* 置中排列內容 */
+    gap: 20px; /* 設定區塊間距 */
+    padding: 20px;
+}
+
+/* 每一個圖片區塊 */
+.item {
+    background-color: white; /* 背景為白色 */
+    border-radius: 8px; /* 圓角邊框 */
+    overflow: hidden; /* 超出邊框的部分會被隱藏 */
+    width: 300px; /* 固定每個區塊寬度 */
+    text-align: center; /* 文字置中 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 加入陰影效果 */
+}
+
+/* 圖片樣式 */
+.item img {
+    width: 100%; /* 圖片寬度填滿區塊 */
+    height: auto; /* 高度自動調整，保持比例 */
+    border-bottom: 2px solid #ddd; /* 底部邊框，分隔圖片和文字 */
+}
+/* 當使用者滑鼠懸停在圖片區塊時，觸發浮動效果 */
+.item:hover {
+    transform: translateY(-10px); /* 整個區塊向上移動10px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 強化陰影效果 */
+}
+
+/* 當使用者滑鼠懸停在圖片時，圖片放大 */
+.item img:hover {
+    transform: scale(1.05); /* 讓圖片放大1.05倍 */
+}
+
+/* 文字描述樣式 */
+.item p {
+    font-size: 16px;
+    color: #333;
+    padding: 15px;
+    margin: 0; /* 移除文字的預設外距 */
+    line-height: 1.5;
+}
+
+.contact-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.social-link img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-link span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+/* 特定樣式 */
+.facebook img {
+    background-color: #3b5998;
+    padding: 10px;
+}
+
+.youtube img {
+    background-color: #ff0000;
+    padding: 10px;
+}
+
+.instagram img {
+    background-color: #e4405f;
+    padding: 10px;
+}
+  </style>
+
+<body>
+<nav class=" navbar">
+    <div class="logo">
+        <img src="pic/logo.png" alt="">
+    </div>
+        <ul class="menu">
+             <li><a href="fin.html">首頁</a></li>
+             <li class="dropdown"><a href="fin2.html">最新消息</a></li>
+             <li><a href="fin3.html">聯絡我們</a></li>
+        </ul>
+</nav>
+<section class="slider">
+
+  <!-- 跑馬燈圖片 -->
+  <img src="pic/BG1.png" class="slide active">
+  <img src="pic/BG2.png" class="slide">
+  <img src="pic/BG3.png" class="slide">
+  <img src="pic/BG4.png" class="slide">
+  <img src="pic/BG5.png" class="slide">
+  <img src="pic/BG6.png" class="slide">
+  <img src="pic/BG7.png" class="slide">
+  <!-- 圖片上的文字 -->
+
+</section>
+
+<div class="contact-container">
+        <h1>聯絡我們</h1>
+        <div class="social-links">
+            <a href="https://www.facebook.com/Genshinimpact.tw/?locale=zh_TW" target="_blank" class="social-link facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/512px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.youtube.com/@Genshinimpact_ZH" target="_blank" class="social-link youtube">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                <span>YouTube</span>
+            </a>
+             <a href="https://www.instagram.com/genshinimpact/" target="_blank" class="social-link instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/500px-Instagram_logo_2022.svg.png" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+        </div>
+    </div>
+<script>
+  // 取得所有圖片
+  const slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  // 每 3 秒切換圖片
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3000);
+</script>
+
+</body>
+</html>
